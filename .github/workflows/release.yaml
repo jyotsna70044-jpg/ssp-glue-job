@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy Glue from S3
         run: |
-          aws s3 cp ${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/2025/12/15/ssp-glue-job.zip ${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/current/ssp-glue-job.zip
+          aws s3 cp s3://ssp-glue-artifact/ssp-glue-job/2025/12/15/ssp-glue-job.zip s3://ssp-glue-artifact/ssp-glue-job/current/ssp-glue-job.zip
