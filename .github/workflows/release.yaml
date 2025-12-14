@@ -1,4 +1,4 @@
-name: Deploy Lambda to S3
+name: Deploy Glue to S3
 run-name: Deploy application
 
 on:
@@ -18,9 +18,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
 
-      - name: Deploy Lambda from S3
+      - name: Deploy Glue from S3
         run: |
-          aws lambda update-function-code \
-            --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
-            --s3-bucket  ${{ secrets.LAMBDA_ARTIFACT_S3_BUCKET_NAME }} \
-            --s3-key lambda-builds/ssp-combiner-lambda.zip
+          aws s3 cp ${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/2025/12/15/ssp-glue-job.zip ${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/current/ssp-glue-job.zip
