@@ -25,5 +25,5 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload to S3 Bucket
-        run: aws s3 sync . s3://${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/current
+        run: aws s3 sync . s3://${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/current --exclude ".gitignore" --exclude ".git/*" --exclude ".github/*"
 #        run: aws s3 cp ssp-glue-job.zip s3://${{ secrets.GLUE_ARTIFACT_S3_BUCKET_NAME }}/ssp-glue-job/2025/12/15/ssp-glue-job.zip
