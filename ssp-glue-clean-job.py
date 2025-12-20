@@ -25,8 +25,10 @@ target_s3_path = args['S3_TARGET_PATH'] if 'S3_TARGET_PATH' in args else "s3://y
 print(target_s3_path)
 # ✅Step 1: Read data using s3 in csv
 dynamic_frame = read_from_s3_in_csv(glueContext, source_s3_path)
+dynamic_frame.printSchema()
 # step 2: Convert DynamicFrame to Spark DataFrame for transformations
 df = dynamic_frame.toDF()
+df.head()
 cleaned_df = clean_data(df)
 transformed_dyf = DynamicFrame.fromDF(cleaned_df, glueContext, "dynamic_frame")
 # Step 3: Write DynamicFrame to S3 in silver folder
