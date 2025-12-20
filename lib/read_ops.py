@@ -11,8 +11,12 @@ def read_from_s3_in_csv(glue_context, source_s3_path):
     dynamic_frame = glue_context.create_dynamic_frame.from_options(
         connection_type="s3",
         connection_options={"paths": [source_s3_path]},
-        format="csv",  # Example: 'csv', 'json', 'parquet'
-        format_options={"withHeader": True, "separator": ","} if format == "csv" else {},
+        format="csv",
+        format_options={
+            "withHeader": True,
+            "optimizePerformance": True,
+            "separator": ","
+        },
         transformation_ctx="datasource0"
     )
     return dynamic_frame
