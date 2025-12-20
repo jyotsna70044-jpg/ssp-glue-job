@@ -1,2 +1,0 @@
-app_id,app_name,platform_name,content_type,request,mcc,client_json,user_id,seesionid,request_id
-flipkart.com,flipkart,galaxy_store,app,keyword,100,'[{client_name:abc,catg_id:2345}]',5,1,abcdefgh
