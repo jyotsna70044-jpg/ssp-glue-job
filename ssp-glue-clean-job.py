@@ -5,9 +5,9 @@ from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
 from awsglue.dynamicframe import DynamicFrame
-from clean import clean_data
-from save_ops import write_in_redshift, write_in_s3_in_par
-from read_ops import read_from_catalog, read_from_s3_in_par, read_from_s3_in_csv
+from lib.clean import clean_data
+from lib.save_ops import write_in_s3_in_par
+from lib.read_ops import read_from_s3_in_csv
 
 ## @params: [JOB_NAME]
 args = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_SOURCE_PATH', 'S3_TARGET_PATH'])

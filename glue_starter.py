@@ -2,14 +2,12 @@ import sys
 from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
-from pyspark.sql.functions import regexp_extract, col, row_number, avg, max, min, sum, count, concat_ws, coalesce, \
-    collect_list
 from awsglue.context import GlueContext
 from awsglue.job import Job
 from awsglue.dynamicframe import DynamicFrame
-from processor import process
-from save_ops import write_in_redshift, write_in_s3_in_par
-from read_ops import read_from_catalog, read_from_s3_in_par, read_from_s3_in_csv
+from lib.processor import process
+from lib.save_ops import write_in_redshift, write_in_s3_in_par
+from lib.read_ops import read_from_catalog, read_from_s3_in_par, read_from_s3_in_csv
 
 ## @params: [JOB_NAME]
 args = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_SOURCE_PATH', 'S3_TARGET_PATH'])

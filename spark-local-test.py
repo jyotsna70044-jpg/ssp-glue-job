@@ -2,9 +2,9 @@ import findspark
 findspark.init()
 from pyspark.sql import SparkSession
 
-from clean import clean_data
-from local_read_ops import read_from_s3_in_csv,read_from_s3_in_par
-from local_save_ops import write_in_s3_in_par,write_in_s3_in_csv
+from lib.clean import clean_data
+from lib.local_read_ops import read_from_s3_in_csv
+from lib.local_save_ops import write_in_s3_in_csv
 
 # Create a SparkSession
 spark = SparkSession.builder.appName('bronze data').getOrCreate()
