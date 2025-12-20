@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create Zip File
-        run: zip -r ssp-glue-lib.zip lib/ -x "*.git*"
+        run: zip -r lib.zip lib/ -x "*.git*"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
