@@ -6,7 +6,7 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 from awsglue.dynamicframe import DynamicFrame
 from lib.clean import clean_data
-from lib.save_ops import write_in_s3_in_par
+from lib.save_ops import write_in_s3_in_par,write_in_s3_in_csv
 from lib.read_ops import read_from_catalog,read_from_s3_in_csv
 
 ## @params: [JOB_NAME]
@@ -35,6 +35,7 @@ df.head()
 cleaned_df = clean_data(df)
 transformed_dyf = DynamicFrame.fromDF(cleaned_df, glueContext, "dynamic_frame")
 # Step 3: Write DynamicFrame to S3 in silver folder
-write_in_s3_in_par(glueContext, target_s3_path, transformed_dyf)
+write_in_s3_in_csv(glueContext, target_s3_path, transformed_dyf)
+# write_in_s3_in_par(glueContext, target_s3_path, transformed_dyf)
 # job end here
 job.commit()
