@@ -31,3 +31,6 @@ logs/
 *.log
 pip-wheel-metadata/
 share/python/
+# ignore
+data/*
+data
